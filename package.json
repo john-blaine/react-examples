@@ -16,7 +16,6 @@
     "url": "https://github.com/john-blaine/react-examples/issues"
   },
   "homepage": "https://github.com/john-blaine/react-examples#readme",
-  "dependencies": {
-    "react": "^16.4.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
