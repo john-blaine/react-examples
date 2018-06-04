@@ -9,6 +9,7 @@ export const output = {
     filename: `bundle.js`,
     path: DIST_DIR
 };
+export const mode = 'development';
 export const module = {
     rules: [
         {
