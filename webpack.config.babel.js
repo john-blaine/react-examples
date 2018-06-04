@@ -1,14 +1,16 @@
 import path from "path";
 var SRC_DIR = path.join(__dirname, '/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
+var DIST_DIR = path.join(__dirname, '/dist');
 
-export const entry = `{SRC_DIR}/app.jsx`;
+console.log(SRC_DIR)
+
+export const entry = `${SRC_DIR}/app.jsx`;
 export const output = {
     filename: `bundle.js`,
     path: DIST_DIR
 };
 export const module = {
-    loaders: [
+    rules: [
         {
             test: /\.jsx?/,
             include: SRC_DIR,
