@@ -2,12 +2,18 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
+function Header(props) {
+  return (
+    <div className="header">
+      <h1>{props.title}</h1>
+    </div>
+  );
+}
+
 function Application(props) {
   return (
     <div className="scoreboard">
-      <div className="header">
-        <h1>{props.title}</h1>
-      </div>
+      <Header title={props.title}/>
 
       <div className="players">
 
@@ -46,4 +52,8 @@ Application.propTypes = {
   title: PropTypes.string,
 };
 
-ReactDOM.render(<Application title={2}/>, document.getElementById('container'));
+Application.defaultProps = {
+  title: "Scoreboard",
+}
+
+ReactDOM.render(<Application />, document.getElementById('container'));
