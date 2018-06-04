@@ -24,6 +24,10 @@ function Counter(props) {
   )
 }
 
+Counter.propTypes = {
+  score: PropTypes.number.isRequired,
+};
+
 function Player(props) {
   return (
     <div className="player">
