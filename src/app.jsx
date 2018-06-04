@@ -31,6 +31,11 @@ function Player(props) {
   )
 }
 
+Player.propTypes = {
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired
+};
+
 function Application(props) {
   return (
     <div className="scoreboard">
