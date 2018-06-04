@@ -1,8 +1,10 @@
-function Application() {
+import PropTypes from 'prop-types';
+
+function Application(props) {
   return (
     <div className="scoreboard">
       <div className="header">
-        <h1>Scoreboard</h1>
+        <h1>{props.title}</h1>
       </div>
 
       <div className="players">
@@ -38,4 +40,8 @@ function Application() {
   );
 }
 
-ReactDOM.render(<Application />, document.getElementById('container'));
+Application.propTypes = {
+  title: PropTypes.string,
+};
+
+ReactDOM.render(<Application title={2}/>, document.getElementById('container'));
