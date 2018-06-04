@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/john-blaine/react-examples#readme",
   "dependencies": {
+    "path": "^0.12.7",
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
