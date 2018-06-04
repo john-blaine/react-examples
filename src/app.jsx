@@ -10,6 +10,10 @@ function Header(props) {
   );
 }
 
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 function Application(props) {
   return (
     <div className="scoreboard">
