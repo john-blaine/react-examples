@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import createReactClass from 'create-react-class'
 
 const PLAYERS = [
   {
@@ -32,15 +33,17 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-function Counter(props) {
-  return (
-    <div className="counter">
-      <button className="counter-action decrement"> - </button>
-      <div className="counter-score"> {props.score} </div>
-      <button className="counter-action increment"> + </button>
-    </div>
-  )
-}
+const Counter = createReactClass({
+  render: function() {
+    return (
+      <div className="counter">
+        <button className="counter-action decrement"> - </button>
+        <div className="counter-score"> {this.props.score} </div>
+        <button className="counter-action increment"> + </button>
+      </div>
+    )
+  }
+})
 
 Counter.propTypes = {
   score: PropTypes.number.isRequired,
