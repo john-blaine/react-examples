@@ -67,8 +67,7 @@ function Application(props) {
       <Header title={props.title}/>
 
       <div className="players">
-        <Player name="John Blaine" score={31}/>
-        <Player name="Nga Nguyen" score={29}/>
+        {props.players.map((player) => <Player name={player.name} score={player.score}/>)}
       </div>
     </div>
   );
@@ -86,4 +85,4 @@ Application.defaultProps = {
   title: "Scoreboard",
 }
 
-ReactDOM.render(<Application />, document.getElementById('container'));
+ReactDOM.render(<Application players={PLAYERS}/>, document.getElementById('container'));
