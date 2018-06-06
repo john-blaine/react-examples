@@ -76,6 +76,10 @@ function Application(props) {
 
 Application.propTypes = {
   title: PropTypes.string,
+  players: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired
+  })).isRequired,
 };
 
 Application.defaultProps = {
