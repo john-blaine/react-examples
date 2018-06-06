@@ -2,6 +2,21 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
+const PLAYERS = [
+  {
+    name: "John Blaine",
+    score: 31,
+  },
+  {
+    name: "Nga Nguyen",
+    score: 29,
+  },
+  {
+    name: "My Hao Pham",
+    score: 37,
+  },
+]
+
 function Header(props) {
   return (
     <div className="header">
