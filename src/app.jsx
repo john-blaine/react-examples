@@ -83,7 +83,7 @@ var Application = createReactClass({
 
   getInitialState: function() {
     return {
-      players: ...,
+      players: this.props.initialPlayers,
     }
   },
 
@@ -93,7 +93,7 @@ var Application = createReactClass({
         <Header title={this.props.title}/>
   
         <div className="players">
-          {this.props.players.map((player) => <Player name={player.name} score={player.score} key={player.id}/>)}
+          {this.state.players.map((player) => <Player name={player.name} score={player.score} key={player.id}/>)}
         </div>
       </div>
     );
