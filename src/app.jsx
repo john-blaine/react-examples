@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import createReactClass from 'create-react-class'
+import createReactClass from 'create-react-class';
 
 const PLAYERS = [
   {
@@ -65,29 +65,39 @@ Player.propTypes = {
   score: PropTypes.number.isRequired
 };
 
-function Application(props) {
-  return (
-    <div className="scoreboard">
-      <Header title={props.title}/>
+var Application = createReactClass({
+  propTypes: {
+    title: PropTypes.string,
+    initialPlayers: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      score: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+    })).isRequired,
+  },
+  
+  getDefaultProps: function() {
+    return {
+      title: "Scoreboard",
+    }
+  },
 
-      <div className="players">
-        {props.players.map((player) => <Player name={player.name} score={player.score} key={player.id}/>)}
+  getInitialState: function() {
+    return {
+      players: ...,
+    }
+  },
+
+  render: function() {
+    return (
+      <div className="scoreboard">
+        <Header title={this.props.title}/>
+  
+        <div className="players">
+          {this.props.players.map((player) => <Player name={player.name} score={player.score} key={player.id}/>)}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+})
 
-Application.propTypes = {
-  title: PropTypes.string,
-  players: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-  })).isRequired,
-};
-
-Application.defaultProps = {
-  title: "Scoreboard",
-}
-
-ReactDOM.render(<Application players={PLAYERS}/>, document.getElementById('container'));
+ReactDOM.render(<Application initialPlayers={PLAYERS}/>, document.getElementById('container'));
