@@ -90,7 +90,9 @@ var Application = createReactClass({
   },
 
   onScoreChange: function(delta, i) {
-    console.log('onScoreChange', delta);
+    console.log('onScoreChange', delta, i);
+    this.state.players[i].score += delta;
+    this.setState(this.state);
   },
 
   render: function() {
