@@ -27,20 +27,26 @@ function Stats(props) {
       <tbody>
         <tr>
           <td>Players:</td>
-          <td>2</td>
+          <td>{props.playerNum}</td>
         </tr>
         <tr>
           <td>Total Points:</td>
-          <td>123</td>
+          <td>{props.totalPoints}</td>
         </tr>
       </tbody>
     </table>
   )
 }
 
+Stats.propTypes = {
+  playerNum: PropTypes.number.isRequired,
+  totalPoints: PropTypes.number.isRequired,
+}
+
 function Header(props) {
   return (
     <div className="header">
+      <Stats playerNum={props.playerNum} totalPoints={props.totalPoints}/>
       <h1>{props.title}</h1>
     </div>
   );
@@ -48,6 +54,8 @@ function Header(props) {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  playerNum: PropTypes.number.isRequired,
+  totalPoints: PropTypes.number.isRequired,
 };
 
 function Counter(props) {
@@ -115,7 +123,13 @@ var Application = createReactClass({
   render: function() {
     return (
       <div className="scoreboard">
-        <Header title={this.props.title}/>
+        <Header 
+          title={this.props.title} 
+          playerNum={this.state.players.length} 
+          totalPoints={this.state.players.reduce((acc, player) => {
+            return acc += player.score;
+          }, 0)}
+        />
   
         <div className="players">
           {this.state.players.map((player, i) =>
@@ -123,7 +137,8 @@ var Application = createReactClass({
             onScoreChange={(delta) => this.onScoreChange(delta, i)}
             name={player.name} 
             score={player.score} 
-            key={player.id}/>
+            key={player.id}
+          />
           )}
         </div>
       </div>
