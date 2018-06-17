@@ -101,13 +101,13 @@ var Application = createReactClass({
         <Header title={this.props.title}/>
   
         <div className="players">
-          {this.state.players.map(function(player, i) {
+          {this.state.players.map((player, i) =>
           <Player
-            onScoreChange={function(delta, i) {this.onScoreChange(delta, i)}.bind(this)}
+            onScoreChange={(delta) => this.onScoreChange(delta, i)}
             name={player.name} 
             score={player.score} 
             key={player.id}/>
-          }.bind(this))}
+          )}
         </div>
       </div>
     );
