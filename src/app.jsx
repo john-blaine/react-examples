@@ -36,15 +36,16 @@ Header.propTypes = {
 function Counter(props) {
   return (
     <div className="counter">
-      <button className="counter-action decrement" > - </button>
+      <button className="counter-action decrement" onClick={function() {props.onChange(-1)}}> - </button>
       <div className="counter-score"> {props.score} </div>
-      <button className="counter-action increment" > + </button>
+      <button className="counter-action increment" onClick={function() {props.onChange(1)}}> + </button>
     </div>
   );
 }
 
 Counter.propTypes = {
   score: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 function Player(props) {
@@ -54,7 +55,7 @@ function Player(props) {
         {props.name}
       </div>
       <div className="player-score">
-        <Counter score={props.score}/>
+        <Counter score={props.score} onChange={props.onScoreChange}/>
       </div>
     </div>
   )
@@ -62,7 +63,8 @@ function Player(props) {
 
 Player.propTypes = {
   name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired
+  score: PropTypes.number.isRequired,
+  onScoreChange: PropTypes.func.isRequired,
 };
 
 var Application = createReactClass({
@@ -93,7 +95,13 @@ var Application = createReactClass({
         <Header title={this.props.title}/>
   
         <div className="players">
-          {this.state.players.map((player) => <Player name={player.name} score={player.score} key={player.id}/>)}
+          {this.state.players.map(function(player) {
+          <Player
+            onScoreChange={this.onScoreChange}
+            name={player.name} 
+            score={player.score} 
+            key={player.id}/>
+          }.bind(this))}
         </div>
       </div>
     );
