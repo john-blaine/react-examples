@@ -89,15 +89,19 @@ var Application = createReactClass({
     }
   },
 
+  onScoreChange: function(delta, i) {
+    console.log('onScoreChange', delta);
+  },
+
   render: function() {
     return (
       <div className="scoreboard">
         <Header title={this.props.title}/>
   
         <div className="players">
-          {this.state.players.map(function(player) {
+          {this.state.players.map(function(player, i) {
           <Player
-            onScoreChange={this.onScoreChange}
+            onScoreChange={function(delta, i) {this.onScoreChange(delta, i)}.bind(this)}
             name={player.name} 
             score={player.score} 
             key={player.id}/>
