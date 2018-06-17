@@ -21,6 +21,19 @@ const PLAYERS = [
   },
 ]
 
+var AddPlayer = createReactClass({
+  render: () => {
+    return (
+      <div className="add-player-form">
+        <form>
+          <input type="text" />
+          <input type="submit" value="Add Player" />
+        </form>
+      </div>
+    );
+  }
+})
+
 function Stats(props) {
   return (
     <table className="stats">
