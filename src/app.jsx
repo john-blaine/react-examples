@@ -33,13 +33,11 @@ class Stopwatch extends React.Component {
   }
 
   render() {
-    var startStop = this.state.running ? <button>Stop</button> : <button>Start</button>;
-
     return (
       <div className="stopwatch">
         <h2>Stopwatch</h2>
         <div className="stopwatch-time">0</div>
-        { startStop }
+        { this.state.running ? <button>Stop</button> : <button>Start</button> }
         <button>Reset</button>
       </div>
     )
