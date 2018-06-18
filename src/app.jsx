@@ -66,7 +66,10 @@ class Stopwatch extends React.Component {
   }
 
   onReset () {
-
+    this.setState({
+      elapsedTime: 0,
+      previousTime: Date.now(),
+    })
   }
 
   render() {
@@ -81,7 +84,7 @@ class Stopwatch extends React.Component {
           : 
           <button onClick={this.onStart.bind(this)}>Start</button> 
         }
-        <button>Reset</button>
+        <button onClick={this.onReset.bind(this)}>Reset</button>
       </div>
     )
   }
