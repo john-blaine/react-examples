@@ -23,12 +23,23 @@ const PLAYERS = [
 
 var playerId = 4;
 
-class Stopwatch extends React.component {
+class Stopwatch extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      running: false,
+    }
   }
 
   render() {
+    var startStop;
+    if (this.state.running) {
+      startStop = <button>Stop</button>
+    } else {
+      startStop = <button>Start</button>
+    }
+
     return (
       <div className="stopwatch">
         <h2>Stopwatch</h2>
@@ -106,6 +117,7 @@ function Header(props) {
     <div className="header">
       <Stats playerNum={props.playerNum} totalPoints={props.totalPoints}/>
       <h1>{props.title}</h1>
+      <Stopwatch />
     </div>
   );
 }
