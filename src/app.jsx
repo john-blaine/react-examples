@@ -29,6 +29,8 @@ class Stopwatch extends React.Component {
 
     this.state = {
       running: false,
+      elapsedTime: 0,
+      previousTime: 0,
     }
 
     this.onTick = this.onTick.bind(this);
