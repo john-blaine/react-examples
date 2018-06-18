@@ -23,6 +23,23 @@ const PLAYERS = [
 
 var playerId = 4;
 
+class Stopwatch extends React.component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div className="stopwatch">
+        <h2>Stopwatch</h2>
+        <div className="stopwatch-time">0</div>
+        <button>Start</button>
+        <button>Reset</button>
+      </div>
+    )
+  }
+}
+
 class AddPlayer extends React.Component {
   constructor(props) {
     super(props)
