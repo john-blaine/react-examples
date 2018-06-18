@@ -44,6 +44,10 @@ class AddPlayer extends React.Component {
   }
 }
 
+AddPlayer.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+}
+
 function Stats(props) {
   return (
     <table className="stats">
