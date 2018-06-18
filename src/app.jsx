@@ -21,6 +21,8 @@ const PLAYERS = [
   },
 ]
 
+var playerId = 4;
+
 class AddPlayer extends React.Component {
   constructor(props) {
     super(props)
@@ -160,7 +162,13 @@ var Application = createReactClass({
   },
 
   onPlayerAdd: function(name) {
-    console.log('Player add:', name);
+    this.state.players.push({
+      name: name,
+      score: 0,
+      id: playerId
+    })
+    this.setState(this.state);
+    playerId++;
   },
 
   render: function() {
