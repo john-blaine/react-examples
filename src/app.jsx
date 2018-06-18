@@ -30,6 +30,20 @@ class Stopwatch extends React.Component {
     this.state = {
       running: false,
     }
+
+    this.onTick = this.onTick.bind(this);
+  }
+
+  componentDidMount () {
+    this.interval = setInterval(this.onTick, 100);
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval);
+  }
+
+  onTick () {
+    console.log('Tick');
   }
 
   onStart () {
@@ -41,7 +55,7 @@ class Stopwatch extends React.Component {
   }
 
   onReset () {
-    
+
   }
 
   render() {
@@ -50,9 +64,9 @@ class Stopwatch extends React.Component {
         <h2>Stopwatch</h2>
         <div className="stopwatch-time">0</div>
         { this.state.running ? 
-          <button onClick={this.onStop}>Stop</button> 
+          <button onClick={this.onStop.bind(this)}>Stop</button> 
           : 
-          <button onClick={this.onStart}>Start</button> 
+          <button onClick={this.onStart.bind(this)}>Start</button> 
         }
         <button>Reset</button>
       </div>
