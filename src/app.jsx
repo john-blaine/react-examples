@@ -40,7 +40,8 @@ class AddPlayer extends React.Component {
   onSubmit (e) {
     e.preventDefault();
 
-    //this.props.onAdd();
+    this.props.onAdd(this.state.name);
+    this.setState({name: ''});
   }
 
   render() {
@@ -158,6 +159,10 @@ var Application = createReactClass({
     this.setState(this.state);
   },
 
+  onPlayerAdd: function(name) {
+    console.log('Player add:', name);
+  },
+
   render: function() {
     return (
       <div className="scoreboard">
@@ -179,7 +184,7 @@ var Application = createReactClass({
           />
           )}
         </div>
-        <AddPlayer />
+        <AddPlayer onAdd={this.onPlayerAdd}/>
       </div>
     );
   }
