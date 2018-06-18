@@ -118,6 +118,7 @@ function Player(props) {
   return (
     <div className="player">
       <div className="player-name">
+        <a className="remove-player" onClick={props.onRemove}>X</a>
         {props.name}
       </div>
       <div className="player-score">
@@ -131,6 +132,7 @@ Player.propTypes = {
   name: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
   onScoreChange: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 
 var Application = createReactClass({
@@ -171,6 +173,11 @@ var Application = createReactClass({
     playerId++;
   },
 
+  onRemove: function(i) {
+    this.state.players.splice(i, 1);
+    this.setState(this.state);
+  },
+
   render: function() {
     return (
       <div className="scoreboard">
@@ -186,9 +193,10 @@ var Application = createReactClass({
           {this.state.players.map((player, i) =>
           <Player
             onScoreChange={(delta) => this.onScoreChange(delta, i)}
-            name={player.name} 
+            name={player.name}
             score={player.score} 
             key={player.id}
+            onRemove={() => this.onRemove(i)}
           />
           )}
         </div>
