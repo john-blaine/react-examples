@@ -32,6 +32,18 @@ class Stopwatch extends React.Component {
     }
   }
 
+  onStart () {
+    this.setState({ running: true });
+  }
+
+  onStop () {
+    this.setState({ running: false })
+  }
+
+  onReset () {
+    
+  }
+
   render() {
     return (
       <div className="stopwatch">
