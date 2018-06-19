@@ -203,7 +203,7 @@ Player.propTypes = {
   onRemove: PropTypes.func.isRequired,
 };
 
-var Application = createReactClass({
+var Scoreboard = createReactClass({
   propTypes: {
     title: PropTypes.string,
     initialPlayers: PropTypes.arrayOf(PropTypes.shape({
