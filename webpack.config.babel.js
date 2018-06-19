@@ -4,7 +4,7 @@ var DIST_DIR = path.join(__dirname, '/dist');
 
 console.log(SRC_DIR)
 
-export const entry = `${SRC_DIR}/index.js`;
+export const entry = `${SRC_DIR}/index.jsx`;
 export const output = {
     filename: `bundle.js`,
     path: DIST_DIR
