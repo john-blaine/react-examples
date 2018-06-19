@@ -3,24 +3,6 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import createReactClass from 'create-react-class';
 
-const PLAYERS = [
-  {
-    name: "John Blaine",
-    score: 31,
-    id: 1,
-  },
-  {
-    name: "Nga Nguyen",
-    score: 29,
-    id: 2,
-  },
-  {
-    name: "My Hao Pham",
-    score: 37,
-    id: 3,
-  },
-]
-
 var playerId = 4;
 
 class Stopwatch extends React.Component {
@@ -274,4 +256,4 @@ var Scoreboard = createReactClass({
   }
 })
 
-ReactDOM.render(<Application initialPlayers={PLAYERS}/>, document.getElementById('container'));
+export default Scoreboard;
