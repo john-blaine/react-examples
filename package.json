@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/john-blaine/react-examples#readme",
   "dependencies": {
+    "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "path": "^0.12.7",
     "prop-types": "^15.6.1",
