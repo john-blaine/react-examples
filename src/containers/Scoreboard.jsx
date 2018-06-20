@@ -2,69 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import createReactClass from 'create-react-class';
 import Stopwatch from '../components/Stopwatch.jsx';
+import Counter from '../components/Counter.jsx';
+import Stats from '../components/Stats.jsx';
+import AddPlayer from '../components/AddPlayer.jsx';
 
 let playerId = 4;
-
-class AddPlayer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: '',
-    };
-
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onNameChange = this.onNameChange.bind(this);
-  }
-
-  onNameChange(e) {
-    this.setState({ name: e.target.value });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-
-    this.props.onAdd(this.state.name);
-    this.setState({ name: '' });
-  }
-
-  render() {
-    return (
-      <div className="add-player-form">
-        <form onSubmit={this.onSubmit}>
-          <input type="text" value={this.state.name} onChange={this.onNameChange} />
-          <input type="submit" value="Add Player" />
-        </form>
-      </div>
-    );
-  }
-}
-
-AddPlayer.propTypes = {
-  onAdd: PropTypes.func.isRequired,
-};
-
-function Stats(props) {
-  return (
-    <table className="stats">
-      <tbody>
-        <tr>
-          <td>Players:</td>
-          <td>{props.playerNum}</td>
-        </tr>
-        <tr>
-          <td>Total Points:</td>
-          <td>{props.totalPoints}</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-}
-
-Stats.propTypes = {
-  playerNum: PropTypes.number.isRequired,
-  totalPoints: PropTypes.number.isRequired,
-};
 
 function Header(props) {
   return (
@@ -80,21 +22,6 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
   playerNum: PropTypes.number.isRequired,
   totalPoints: PropTypes.number.isRequired,
-};
-
-function Counter(props) {
-  return (
-    <div className="counter">
-      <button className="counter-action decrement" onClick={function () { props.onChange(-1); }}> - </button>
-      <div className="counter-score"> {props.score} </div>
-      <button className="counter-action increment" onClick={function () { props.onChange(1); }}> + </button>
-    </div>
-  );
-}
-
-Counter.propTypes = {
-  score: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
 };
 
 function Player(props) {
