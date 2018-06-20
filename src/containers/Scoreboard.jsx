@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import createReactClass from 'create-react-class';
 import AddPlayer from '../components/AddPlayer.jsx';
 import Header from '../components/Header.jsx';
 import Player from '../components/Player.jsx';
