@@ -7,33 +7,43 @@ import Player from '../components/Player.jsx';
 
 let playerId = 4;
 
-const Scoreboard = createReactClass({
-  propTypes: {
-    title: PropTypes.string,
-    initialPlayers: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      score: PropTypes.number.isRequired,
-      id: PropTypes.number.isRequired,
-    })).isRequired,
-  },
+export default class Scoreboard extends React.Component {
+  constructor(props) {
+    super(props);
 
-  getDefaultProps() {
-    return {
-      title: 'Scoreboard',
+    this.state = {
+        players: [
+        {
+          name: 'John Blaine',
+          score: 31,
+          id: 1,
+        },
+        {
+          name: 'Nga Nguyen',
+          score: 29,
+          id: 2,
+        },
+        {
+          name: 'My Hao Pham',
+          score: 37,
+          id: 3,
+        }
+      ],
     };
-  },
+
+  }
 
   getInitialState() {
     return {
       players: this.props.initialPlayers,
     };
-  },
+  }
 
   onScoreChange(delta, i) {
     console.log('onScoreChange', delta, i);
     this.state.players[i].score += delta;
     this.setState(this.state);
-  },
+  }
 
   onPlayerAdd(name) {
     this.state.players.push({
@@ -43,12 +53,12 @@ const Scoreboard = createReactClass({
     });
     this.setState(this.state);
     playerId++;
-  },
+  }
 
   onRemove(i) {
     this.state.players.splice(i, 1);
     this.setState(this.state);
-  },
+  }
 
   render() {
     return (
@@ -72,7 +82,13 @@ const Scoreboard = createReactClass({
         <AddPlayer onAdd={this.onPlayerAdd} />
       </div>
     );
-  },
-});
+  }
+};
 
-export default Scoreboard;
+Scoreboard.defaultProps = {
+  title: 'Scoreboard'
+};
+
+Scoreboard.propTypes = {
+  title: PropTypes.string,
+}
