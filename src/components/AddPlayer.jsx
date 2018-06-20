@@ -9,7 +9,7 @@ export default class AddPlayer extends Component {
       name: '',
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
+    this.addPlayer = this.addPlayer.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
   }
 
@@ -17,7 +17,7 @@ export default class AddPlayer extends Component {
     this.setState({ name: e.target.value });
   }
 
-  onSubmit(e) {
+  addPlayer(e) {
     e.preventDefault();
 
     this.props.onAdd(this.state.name);
@@ -27,7 +27,7 @@ export default class AddPlayer extends Component {
   render() {
     return (
       <div className="add-player-form">
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.addPlayer}>
           <input type="text" value={this.state.name} onChange={this.onNameChange} />
           <input type="submit" value="Add Player" />
         </form>
