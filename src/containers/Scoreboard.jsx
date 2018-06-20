@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import AddPlayer from '../components/AddPlayer.jsx';
 import Header from '../components/Header.jsx';
 import Player from '../components/Player.jsx';
@@ -10,12 +11,26 @@ export default class Scoreboard extends React.Component {
   constructor(props) {
     super(props);
 
-  }
+    state = {
+      players: [
+        {
+          name: 'John Blaine',
+          score: 31,
+          id: 1,
+        },
+        {
+          name: 'Nga Nguyen',
+          score: 29,
+          id: 2,
+        },
+        {
+          name: 'My Hao Pham',
+          score: 37,
+          id: 3,
+        }
+      ]
+    }
 
-  getInitialState() {
-    return {
-      players: this.props.initialPlayers,
-    };
   }
 
   onScoreChange(delta, i) {
