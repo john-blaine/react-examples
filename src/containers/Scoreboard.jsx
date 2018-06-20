@@ -1,49 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import createReactClass from 'create-react-class';
-import Stopwatch from '../components/Stopwatch.jsx';
-import Counter from '../components/Counter.jsx';
-import Stats from '../components/Stats.jsx';
 import AddPlayer from '../components/AddPlayer.jsx';
+import Header from '../components/Header.jsx';
+import Player from '../components/Player.jsx';
 
 let playerId = 4;
-
-function Header(props) {
-  return (
-    <div className="header">
-      <Stats playerNum={props.playerNum} totalPoints={props.totalPoints} />
-      <h1>{props.title}</h1>
-      <Stopwatch />
-    </div>
-  );
-}
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-  playerNum: PropTypes.number.isRequired,
-  totalPoints: PropTypes.number.isRequired,
-};
-
-function Player(props) {
-  return (
-    <div className="player">
-      <div className="player-name">
-        <a className="remove-player" onClick={props.onRemove}>X</a>
-        {props.name}
-      </div>
-      <div className="player-score">
-        <Counter score={props.score} onChange={props.onScoreChange} />
-      </div>
-    </div>
-  );
-}
-
-Player.propTypes = {
-  name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  onScoreChange: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
-};
 
 const Scoreboard = createReactClass({
   propTypes: {
