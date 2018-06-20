@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Scoreboard from './Scoreboard.jsx';
+import Scoreboard from './containers/Scoreboard.jsx';
 
 const PLAYERS = [
   {
