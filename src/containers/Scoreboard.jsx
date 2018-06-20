@@ -10,26 +10,6 @@ export default class Scoreboard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-        players: [
-        {
-          name: 'John Blaine',
-          score: 31,
-          id: 1,
-        },
-        {
-          name: 'Nga Nguyen',
-          score: 29,
-          id: 2,
-        },
-        {
-          name: 'My Hao Pham',
-          score: 37,
-          id: 3,
-        }
-      ],
-    };
-
   }
 
   getInitialState() {
