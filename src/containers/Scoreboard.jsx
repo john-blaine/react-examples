@@ -11,10 +11,6 @@ let playerId = 4;
 
 class Scoreboard extends React.Component {
 
-  static propTypes = {
-    players: PropTypes.array.isRequired
-  };
-
   render() {
 
     const { dispatch, players } = this.props;
@@ -37,21 +33,14 @@ class Scoreboard extends React.Component {
       <div className="scoreboard">
         <Header
           title={this.props.title}
-          playerNum={this.state.players.length}
-          totalPoints={this.state.players.reduce((acc, player) => acc += player.score, 0)}
+          playerNum={players.length}
+          totalPoints={players.reduce((acc, player) => acc += player.score, 0)}
         />
 
         <div className="players">
-          {this.state.players.map((player, i) =>
-            (<Player
-              onScoreChange={delta => this.onScoreChange(delta, i)}
-              name={player.name}
-              score={player.score}
-              key={player.id}
-              onRemove={() => this.onRemove(i)}
-            />))}
+          { playerComponents }
         </div>
-        <AddPlayer onAdd={this.onPlayerAdd} />
+        <AddPlayer onAdd={addPlayer} />
       </div>
     );
   }
@@ -63,12 +52,13 @@ Scoreboard.defaultProps = {
 
 Scoreboard.propTypes = {
   title: PropTypes.string,
+  players: PropTypes.array.isRequired,
 }
 
-const mapStateToProps = state => {
-  {
-    players: state
+const mapStateToProps = state => (
+  { 
+    players: state 
   }
-};
+);
 
 export default connect(mapStateToProps)(Scoreboard);
