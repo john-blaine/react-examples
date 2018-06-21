@@ -6,7 +6,8 @@ import PlayerReducer from './reducers/player'
 import Scoreboard from './containers/Scoreboard.jsx';
 
 const store = createStore(
-  PlayerReducer
+  PlayerReducer,
+  window.devToolsExtension && window.devToolsExtension()
 );
 
 render(
