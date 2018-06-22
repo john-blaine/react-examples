@@ -56,7 +56,8 @@ export default function Player(state=initialState, action) {
           if(index === action.index) {
             return {
               ...player,
-              score: player.score + action.score
+              score: player.score + action.score,
+              updated: dateTime(),
             };
           }
           return player;
