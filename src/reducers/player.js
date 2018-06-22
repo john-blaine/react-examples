@@ -28,21 +28,27 @@ const initialState = {
 export default function Player(state=initialState, action) {
   switch(action.type) {
     case PlayerActionTypes.ADD_PLAYER:
-    return [
-      ...state,
-      {
-        name: action.name,
-        score: 0,
-        created: dateTime(),
-        updated: dateTime(),
+      return {
+        players: [
+          ...state.players,
+          {
+            name: action.name,
+            score: 0,
+            created: dateTime(),
+            updated: dateTime(),
+          }
+        ],
+        selectedPlayerIndex: state.selectedPlayerIndex
       }
-    ];
 
     case PlayerActionTypes.REMOVE_PLAYER:
-      return [
-        ...state.slice(0, action.index),
-        ...state.slice(action.index + 1)
-      ];
+      return {
+        players: [
+          ...state.players.slice(0, action.index),
+          ...state.players.slice(action.index + 1)
+        ],
+        selectedPlayerIndex: state.selectedPlayerIndex
+      }
 
     case PlayerActionTypes.UPDATE_PLAYER_SCORE:
       return {
@@ -57,11 +63,6 @@ export default function Player(state=initialState, action) {
         }),
         selectedPlayerIndex: state.selectedPlayerIndex
       }
-
-    case PlayerActionTypes.SET_CREATED_DATE:
-      return [
-
-      ]
 
     default:
       return state;
