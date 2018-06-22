@@ -4,17 +4,14 @@ const initialState = [
   {
     name: 'John Blaine',
     score: 31,
-    id: 1,
   },
   {
     name: 'Nga Nguyen',
     score: 29,
-    id: 2,
   },
   {
     name: 'My Hao Pham',
     score: 37,
-    id: 3,
   }
 ];
 

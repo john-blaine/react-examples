@@ -7,8 +7,6 @@ import AddPlayer from '../components/AddPlayer.jsx';
 import Header from '../components/Header.jsx';
 import Player from '../components/Player.jsx';
 
-let playerId = 4;
-
 class Scoreboard extends React.Component {
 
   render() {
