@@ -11,7 +11,8 @@ class Scoreboard extends React.Component {
 
   render() {
 
-    const { dispatch, players } = this.props;
+    const { dispatch, players, selectedPlayerIndex } = this.props;
+    console.log(players);
     const addPlayer = bindActionCreators(PlayerActionCreators.addPlayer, dispatch);
     const removePlayer = bindActionCreators(PlayerActionCreators.removePlayer, dispatch);
     const updatePlayerScore = bindActionCreators(PlayerActionCreators.updatePlayerScore, dispatch);
@@ -55,7 +56,8 @@ Scoreboard.propTypes = {
 
 const mapStateToProps = state => (
   { 
-    players: state 
+    players: state.players,
+    selectedPlayerIndex: state.selectedPlayerIndex
   }
 );
 

@@ -1,4 +1,5 @@
 import * as PlayerActionTypes from '../actiontypes/player';
+import dateTime from './helpers/datetime.js';
 
 const initialState = {
   players: [
@@ -31,7 +32,9 @@ export default function Player(state=initialState, action) {
       ...state,
       {
         name: action.name,
-        score: 0
+        score: 0,
+        created: dateTime(),
+        updated: dateTime(),
       }
     ];
 
@@ -42,15 +45,23 @@ export default function Player(state=initialState, action) {
       ];
 
     case PlayerActionTypes.UPDATE_PLAYER_SCORE:
-      return state.map((player, index) => {
-        if(index === action.index) {
-          return {
-            ...player,
-            score: player.score + action.score
-          };
-        }
-        return player;
-      });
+      return {
+        players: state.players.map((player, index) => {
+          if(index === action.index) {
+            return {
+              ...player,
+              score: player.score + action.score
+            };
+          }
+          return player;
+        }),
+        selectedPlayerIndex: state.selectedPlayerIndex
+      }
+
+    case PlayerActionTypes.SET_CREATED_DATE:
+      return [
+
+      ]
 
     default:
       return state;
