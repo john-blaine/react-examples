@@ -1,19 +1,28 @@
 import * as PlayerActionTypes from '../actiontypes/player';
 
-const initialState = [
-  {
-    name: 'John Blaine',
-    score: 31,
-  },
-  {
-    name: 'Nga Nguyen',
-    score: 29,
-  },
-  {
-    name: 'My Hao Pham',
-    score: 37,
-  }
-];
+const initialState = {
+  players: [
+    {
+      name: 'John Blaine',
+      score: 31,
+      created: '6/21/2018 12:30PM',
+      updated: '6/22/2018 6:03AM'
+    },
+    {
+      name: 'Nga Nguyen',
+      score: 29,
+      created: '6/22/2018 10:05AM',
+      updated: '6/22/2018 10:33AM'
+    },
+    {
+      name: 'My Hao Pham',
+      score: 37,
+      created: '6/22/2018 11:37AM',
+      updated: '6/22/2018 12:38AM'
+    }
+  ],
+  selectedPlayerIndex: -1
+}
 
 export default function Player(state=initialState, action) {
   switch(action.type) {
