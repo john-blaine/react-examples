@@ -5,12 +5,17 @@ const dateTime = () => {
   const yyyy = today.getFullYear();
 
   let min = today.getMinutes();
-  let hour = 12;
+  let hour = today.getHours();
   let timeDiv = 'AM';
 
-  if (hour > 12) {
-    hour -= 12;
+  if (hour >= 12) {
     timeDiv = 'PM';
+    if (hour == 24) {
+      timeDiv = 'AM'
+    }
+    if (hour > 12) {
+      hour -= 12;
+    }
   }
 
   if (min < 10) {
