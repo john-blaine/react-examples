@@ -29,7 +29,7 @@ const PlayerDetail = ({index, player}) => {
 
 PlayerDetail.propTypes = {
   index: PropTypes.number.isRequired,
-  player: PropTypes.object.isRequired,
+  player: PropTypes.object,
 };
 
 export default PlayerDetail;
