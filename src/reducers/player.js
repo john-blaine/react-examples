@@ -65,6 +65,12 @@ export default function Player(state=initialState, action) {
         selectedPlayerIndex: state.selectedPlayerIndex
       }
 
+    case PlayerActionTypes.SELECT_PLAYER:
+      return {
+        players: state.players,
+        selectedPlayerIndex: action.index
+      }
+
     default:
       return state;
   }
