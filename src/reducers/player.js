@@ -47,7 +47,7 @@ export default function Player(state=initialState, action) {
           ...state.players.slice(0, action.index),
           ...state.players.slice(action.index + 1)
         ],
-        selectedPlayerIndex: state.selectedPlayerIndex
+        selectedPlayerIndex: -1
       }
 
     case PlayerActionTypes.UPDATE_PLAYER_SCORE:
