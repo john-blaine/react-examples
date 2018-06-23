@@ -45,10 +45,7 @@ class Scoreboard extends React.Component {
         <div>
           <PlayerDetail 
             index={selectedPlayerIndex} 
-            name={players[selectedPlayerIndex].name}
-            score={players[selectedPlayerIndex].score}
-            created={players[selectedPlayerIndex].created}
-            updated={players[selectedPlayerIndex].updated}
+            player={players[selectedPlayerIndex]}
           />
         </div>
       </div>

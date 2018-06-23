@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PlayerDetail = ({index, name, score, created, updated}) => {
+const PlayerDetail = ({index, player}) => {
   if (index > -1){
     return (
       <div>
-        <h3>{ name }</h3>
+        <h3>{ player.name }</h3>
         <ul>
           <li>
             <span>Score: </span>
-            { score }
+            { player.score }
           </li>
           <li>
             <span>Created: </span>
-            { created }
+            { player.created }
           </li>
           <li>
             <span>Updated: </span>
-            { updated }
+            { player.updated }
           </li>
         </ul>
       </div>
@@ -29,10 +29,7 @@ const PlayerDetail = ({index, name, score, created, updated}) => {
 
 PlayerDetail.propTypes = {
   index: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  created: PropTypes.string.isRequired,
-  updated: PropTypes.string.isRequired,
+  player: PropTypes.object.isRequired,
 };
 
 export default PlayerDetail;
