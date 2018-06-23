@@ -13,7 +13,6 @@ class Scoreboard extends React.Component {
   render() {
 
     const { dispatch, players, selectedPlayerIndex } = this.props;
-    console.log(players);
     const addPlayer = bindActionCreators(PlayerActionCreators.addPlayer, dispatch);
     const removePlayer = bindActionCreators(PlayerActionCreators.removePlayer, dispatch);
     const updatePlayerScore = bindActionCreators(PlayerActionCreators.updatePlayerScore, dispatch);
@@ -43,8 +42,8 @@ class Scoreboard extends React.Component {
           { playerComponents }
         </div>
         <AddPlayer onAdd={addPlayer} />
-        <div className="header">
-          <PlayerDetail />
+        <div>
+          <PlayerDetail index={selectedPlayerIndex} player={players[selectedPlayerIndex]}/>
         </div>
       </div>
     );
