@@ -6,6 +6,7 @@ import * as PlayerActionCreators from '../actions/player';
 import AddPlayer from '../components/AddPlayer.jsx';
 import Header from '../components/Header.jsx';
 import Player from '../components/Player.jsx';
+import PlayerDetail from '../components/PlayerDetail.jsx';
 
 class Scoreboard extends React.Component {
 
@@ -42,6 +43,9 @@ class Scoreboard extends React.Component {
           { playerComponents }
         </div>
         <AddPlayer onAdd={addPlayer} />
+        <div className="header">
+          <PlayerDetail />
+        </div>
       </div>
     );
   }
