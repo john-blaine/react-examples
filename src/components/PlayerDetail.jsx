@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PlayerDetail = ({index, player}) => {
+const PlayerDetail = ({index, name, score, created, updated}) => {
   if (index > -1){
     return (
       <div>
-        <h3>{ player.name }</h3>
+        <h3>{ name }</h3>
         <ul>
           <li>
             <span>Score: </span>
-            { player.score }
+            { score }
           </li>
           <li>
             <span>Created: </span>
-            { player.created }
+            { created }
           </li>
           <li>
             <span>Updated: </span>
-            { player.updated }
+            { updated }
           </li>
         </ul>
       </div>
@@ -26,5 +26,13 @@ const PlayerDetail = ({index, player}) => {
     return (<p>Click on a player to see more details</p>);
   }
 }
+
+PlayerDetail.propTypes = {
+  index: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  created: PropTypes.string.isRequired,
+  updated: PropTypes.string.isRequired,
+};
 
 export default PlayerDetail;
