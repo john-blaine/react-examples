@@ -16,6 +16,7 @@ class Scoreboard extends React.Component {
     const addPlayer = bindActionCreators(PlayerActionCreators.addPlayer, dispatch);
     const removePlayer = bindActionCreators(PlayerActionCreators.removePlayer, dispatch);
     const updatePlayerScore = bindActionCreators(PlayerActionCreators.updatePlayerScore, dispatch);
+    const selectPlayer = bindActionCreators(PlayerActionCreators.selectPlayer, dispatch);
 
     const playerComponents = players.map((player, index) => (
       <Player
@@ -25,6 +26,7 @@ class Scoreboard extends React.Component {
         key={player.name}
         updatePlayerScore={updatePlayerScore}
         removePlayer={removePlayer}
+        selectPlayer={selectPlayer}
       />
     ))
 
