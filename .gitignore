@@ -1,0 +1,9 @@
+.gitignore
+
+# modules
+node_modules
+
+# Compiled dirs
+/dist
+
+
